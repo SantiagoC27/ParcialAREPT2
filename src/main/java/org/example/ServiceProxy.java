@@ -17,7 +17,9 @@ public class ServiceProxy {
         staticFiles.location("/public");
         get("hello", (req,res) -> {
 
-            String GET_URL = "https://ec2-54-158-98-164.compute-1.amazonaws.com:5001/lucasseq?value=" + req.queryParams("name");
+            //https://ec2-54-158-98-164.compute-1.amazonaws.com:5001/lucasseq?value=
+            //http://localhost:5001/lucasseq?value=
+            String GET_URL = "http://ec2-54-158-98-164.compute-1.amazonaws.com:5001/lucasseq?value=" + req.queryParams("name");
             URL obj = new URL(GET_URL);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");
